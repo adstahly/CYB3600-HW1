@@ -1,21 +1,25 @@
 import random
 import math
 
-plaintext = "The quick brown fox jumps over the lazy dog" #input("Enter the plaintext message: ")
-key_length = 4 #random.randint(4, 10)
+plaintext = input("Enter the plaintext message: ")
+key_length = random.randint(4, 10)
 motified_text = plaintext.replace(' ', '')
-#print(key_length)
 row_amount = math.ceil(float(len(motified_text)/key_length))
 tmatrix = [[" " for _ in range(key_length)] for _ in range(row_amount)]
 row_counter = 0
-col_counter = 0
-for char in motified_text:
-    tmatrix[row_counter%row_amount][col_counter%key_length] = char
-    print(tmatrix)
-    if col_counter%key_length == key_length-1 and col_counter > 0:
+for letter_index, char in enumerate(motified_text):
+    current_row = row_counter % row_amount
+    current_col = letter_index % key_length
+    tmatrix[current_row][current_col] = char
+    if current_col == key_length-1:
         row_counter += 1
-    col_counter += 1
-# #tmatrix = [math.ceil(float(len(plaintext)/key_length))][key_length]
-# #for i in range(len(plaintext)):
-# #    for j in range(len(plaintext)):
-# #        tmatrix[i][j] = 1
+ciphertext = ""
+for col_index in range(key_length):
+    for row_index in range(row_amount):
+        ciphertext += tmatrix[row_index][col_index]
+for row in tmatrix:
+    print(row)
+print(key_length)
+print("Plaintext:" + plaintext)
+print("Ciphertext:" + ciphertext.rstrip())
+
