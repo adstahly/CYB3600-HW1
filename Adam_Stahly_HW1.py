@@ -22,6 +22,7 @@ ciphertext = ""
 for col_index in range(key_length):
     for row_index in range(row_amount):
         ciphertext += tmatrix[row_index][col_index]
+
 for row in tmatrix:
     print(row)
 print("Key Length: " + str(key_length))
