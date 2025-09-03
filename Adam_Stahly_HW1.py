@@ -1,3 +1,4 @@
+#Adam Stahly
 import random
 import math
 
@@ -24,7 +25,11 @@ for col_index in range(key_length):
         ciphertext += tmatrix[row_index][col_index]
 
 for row in tmatrix:
-    print(row)
+    for letter_index, char in enumerate(row):
+        if (letter_index % key_length) != 0:
+            print(char, end="")
+        else:
+            print(char)
 print("Key Length: " + str(key_length))
 print("Plaintext: " + plaintext)
 print("Ciphertext: " + ciphertext.rstrip())
