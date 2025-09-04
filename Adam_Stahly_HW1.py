@@ -26,11 +26,11 @@ for col_index in range(key_length):
 
 for row in tmatrix:
     for letter_index, char in enumerate(row):
-        if (letter_index % key_length) != 0 and letter_index != '':
-            print(char, end="")
-            print(letter_index)
-        else:
+        if letter_index == key_length-1:
             print(char)
+        else:
+            print(char, end="")
+
 print("Key Length: " + str(key_length))
 print("Plaintext: " + plaintext)
 print("Ciphertext: " + ciphertext.rstrip())
