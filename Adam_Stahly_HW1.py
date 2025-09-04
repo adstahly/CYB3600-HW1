@@ -26,8 +26,9 @@ for col_index in range(key_length):
 
 for row in tmatrix:
     for letter_index, char in enumerate(row):
-        if (letter_index % key_length) != 0:
+        if (letter_index % key_length) != 0 and letter_index != '':
             print(char, end="")
+            print(letter_index)
         else:
             print(char)
 print("Key Length: " + str(key_length))
