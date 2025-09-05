@@ -19,9 +19,9 @@ def create_ciphertext():
 
 plaintext = input("Enter the plaintext message: ")
 key_length = random.randint(4, 10)
-motified_text = plaintext.replace(' ', '')
-row_amount = math.ceil(float(len(motified_text)/key_length))
-tmatrix = populate_matrix(motified_text)
+modified_text = plaintext.replace(' ', '')
+row_amount = math.ceil(float(len(modified_text)/key_length))
+tmatrix = populate_matrix(modified_text)
 
 ciphertext = create_ciphertext()
 
